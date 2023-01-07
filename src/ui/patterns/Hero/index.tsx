@@ -1,3 +1,5 @@
+import Form from "../Form";
+
 function Hero() {
   return (
     <section className='bg-white py-12'>
@@ -5,6 +7,7 @@ function Hero() {
         <h1 className='text-3xl font-bold text-gray-800 mb-6'>
           Welcome to le.nez
         </h1>
+        <Form />
         <p className='text-gray-600 mb-8'>
           Welcome to le.nez, your one stop destination for personalized
           fragrance recommendations. Our AI technology analyzes your preferences
