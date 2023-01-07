@@ -11,10 +11,9 @@ const Dropdown: React.FC<Props> = ({ options, onChange, value, label }) => {
       </label>
       <div className='relative rounded-md shadow-sm'>
         <select
-          defaultValue=''
           className='appearance-none block w-full bg-gray-200 text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
           id={label}
-          value={value}
+          value={value || ""}
           onChange={onChange}
         >
           <option value='' disabled>
