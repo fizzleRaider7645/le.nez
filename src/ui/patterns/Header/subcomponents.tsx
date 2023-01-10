@@ -23,7 +23,7 @@ export function DropdownMenu({
   return showDropdown ? (
     <div
       id='dropdown-menu'
-      className='absolute right-0 mt-2 py-2 bg-white rounded-lg shadow-xl'
+      className='absolute right-0 mt-2 py-2 bg-white rounded-lg shadow-xl z-2'
     >
       <a
         id='dropdown-menu'
