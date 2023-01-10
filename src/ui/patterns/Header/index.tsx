@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HamburgerMenu from "../../icons/HamburgerMenu";
+import { DropdownMenu, SelectionOptions } from "./subcomponents";
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,54 +18,20 @@ function Header() {
         </div>
         <div className='w-1/2 flex justify-end'>
           <div className='hidden md:block'>
-            <a
-              href='#'
-              className='px-3 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
-            >
-              Home
-            </a>
-            <a
-              href='#'
-              className='px-3 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
-            >
-              About
-            </a>
-            <a
-              href='#'
-              className='px-3 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
-            >
-              Contact
-            </a>
+            <SelectionOptions />
           </div>
           <div className='block md:hidden'>
             <button
+              id='dropdown-menu'
               onClick={() => setShowDropdown(!showDropdown)}
-              className='px-3 py-2 font-bold text-gray-900 rounded-full  hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400'
+              className='px-3 py-2 font-bold text-gray-900 rounded-full'
               type='button'
             >
               <HamburgerMenu />
-              {showDropdown && (
-                <div className='absolute right-0 mt-2 py-2 bg-white rounded-lg shadow-xl'>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
-                  >
-                    Home
-                  </a>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
-                  >
-                    About
-                  </a>
-                  <a
-                    href='#'
-                    className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
-                  >
-                    Contact
-                  </a>
-                </div>
-              )}
+              <DropdownMenu
+                showDropdown={showDropdown}
+                setShowDropdown={setShowDropdown}
+              />
             </button>
           </div>
         </div>
