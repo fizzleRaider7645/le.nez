@@ -19,7 +19,7 @@ function Carousel() {
         onClick={handleNextClick}
         className='absolute bottom-0 right-0 mb-4 mr-4 p-2 rounded-full bg-white shadow-xl hover:shadow-2xl focus:outline-none'
       >
-        <Arrow />
+        <Arrow activeIndex={activeIndex} items={items} />
       </button>
     </div>
   );
