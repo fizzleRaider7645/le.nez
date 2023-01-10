@@ -1,7 +1,7 @@
 import { Props } from "./types";
 
 function Arrow({ activeIndex, items }: Props) {
-  const isLastItem = activeIndex === items.length - 1;
+  const isLastItem = activeIndex === items?.length - 1;
   return (
     <svg
       className={`w-6 h-6 text-gray-600 transition-transform duration-500 ease-in-out transform-origin-center ${

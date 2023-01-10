@@ -2,7 +2,7 @@ import Form from "../Form";
 
 function Hero() {
   return (
-    <section className='bg-white py-12'>
+    <section className='bg-white py-12 w-full'>
       <div className='container mx-auto px-4'>
         <h1 className='text-3xl font-bold text-gray-800 mb-6 font-michroma'>
           Welcome to le.nez
