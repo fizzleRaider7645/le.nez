@@ -4,15 +4,17 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      backgroundColor: {
-        header: "#efefef",
+      fontFamily: {
+        bebasNeue: ["Bebas Neue", "cursive"],
+        headerFont: ["Rubik Mono One", "sans-serif"],
       },
-      textColor: {
-        "header-heading": "#707070",
-        "header-light": "#707070",
+      focusRing: {
+        2: "2px",
+        4: "4px",
       },
-      borderColor: {
-        header: "#dcdcdc",
+      focusRingColor: {
+        "indigo-500": "#6610f2",
+        "red-500": "#f56565",
       },
     },
   },

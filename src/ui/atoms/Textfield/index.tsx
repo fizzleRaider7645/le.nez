@@ -10,7 +10,7 @@ const Textfield: React.FC<Props> = ({ label, value, onChange }) => {
         {label}
       </label>
       <input
-        className='appearance-none block w-full bg-gray-200 text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+        className='appearance-none block w-full bg-gray-200 text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-yellow-400'
         id={label}
         type='text'
         value={value.join(", ")}

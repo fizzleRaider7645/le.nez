@@ -4,11 +4,11 @@ function Hero() {
   return (
     <section className='bg-white py-12'>
       <div className='container mx-auto px-4'>
-        <h1 className='text-3xl font-bold text-gray-800 mb-6'>
+        <h1 className='text-3xl font-bold text-gray-800 mb-6 font-michroma'>
           Welcome to le.nez
         </h1>
         <Form />
-        <p className='text-gray-600 mb-8'>
+        <p className='text-gray-600 mb-8 font-michroma'>
           Welcome to le.nez, your one stop destination for personalized
           fragrance recommendations. Our AI technology analyzes your preferences
           and provides recommendations tailored to your unique tastes. Whether
