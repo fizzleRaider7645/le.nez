@@ -49,3 +49,21 @@ export const personalityOptions: Option[] = [
     { value: 'sophisticated', label: 'Sophisticated', emoji: '🕴️' },
     { value: 'casual', label: 'Casual', emoji: '👟' }
 ];
+
+export const skinTypeOptions = [
+    { value: 'oily', label: 'Oily', emoji: '🧴' },
+    { value: 'dry', label: 'Dry', emoji: '🏝️' },
+    { value: 'combination', label: 'Combination', emoji: '🧼' }
+  ];
+
+export const climateOptions = [
+    { value: 'cool', label: 'Cool', emoji: '🥶' },
+    { value: 'warm', label: 'Warm', emoji: '🌡️' },
+    { value: 'hot', label: 'Hot', emoji: '🔥' }
+]
+
+export const sillageOptions = [
+    { value: 'low', label: 'Low', emoji: '💨' },
+    { value: 'medium', label: 'Medium', emoji: '💨💨' },
+    { value: 'high', label: 'High', emoji: '💨💨💨' }
+]

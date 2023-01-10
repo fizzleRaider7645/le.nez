@@ -5,8 +5,11 @@ import {
   desiredEffectsOptions,
   scentTypeOptions,
   personalityOptions,
+  skinTypeOptions,
+  sillageOptions,
+  climateOptions,
 } from "../../atoms/Dropdown/options";
-import Textfield from "../../atoms/Textfield";
+import TextArea from "../../atoms/Textarea";
 
 function Form() {
   const [occasion, setOccasion] = useState<string>("");
@@ -16,6 +19,8 @@ function Form() {
   const [previousExperiences, setPreviousExperiences] = useState<string[]>([]);
   const [dislikedNotes, setDislikedNotes] = useState<string[]>([]);
   const [skinType, setSkinType] = useState("");
+  const [climate, setClimate] = useState("");
+  const [silliage, setSilliage] = useState("");
 
   return (
     <form className='w-full max-w-md'>
@@ -38,19 +43,37 @@ function Form() {
         label='Scent Type'
       />
       <Dropdown
+        options={skinTypeOptions}
+        onChange={(event) => setSkinType(event.target.value)}
+        value={skinType}
+        label='Skin Type'
+      />
+      <Dropdown
         options={personalityOptions}
         onChange={(event) => setPersonality(event.target.value)}
         value={personality}
         label='Personality'
       />
-      <Textfield
+      <Dropdown
+        options={climateOptions}
+        onChange={(event) => setClimate(event.target.value)}
+        value={climate}
+        label='Climate'
+      />
+      <Dropdown
+        options={sillageOptions}
+        onChange={(event) => setSilliage(event.target.value)}
+        value={silliage}
+        label='Sillage'
+      />
+      <TextArea
         label='Previous Experiences'
         value={previousExperiences}
         onChange={(event) =>
           setPreviousExperiences(event.target.value.split(", "))
         }
       />
-      <Textfield
+      <TextArea
         label='Disliked Notes'
         value={dislikedNotes}
         onChange={(event) => setDislikedNotes(event.target.value.split(", "))}

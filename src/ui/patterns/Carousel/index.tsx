@@ -12,7 +12,7 @@ function Carousel() {
 
   return (
     <div className='relative overflow-hidden w-full min-h-screen bg-gray-200'>
-      <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center overflow-scroll'>
+      <div className='top-0 left-0 w-full h-full flex items-center justify-center overflow-scroll'>
         {items[activeIndex]}
       </div>
       <button
