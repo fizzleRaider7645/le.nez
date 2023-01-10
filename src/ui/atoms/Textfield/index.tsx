@@ -1,6 +1,6 @@
 import { Props } from "./types";
 
-const Textfield: React.FC<Props> = ({ label, value, onChange }) => {
+function Textfield({ label, value, onChange }: Props) {
   return (
     <div className='mb-6'>
       <label
@@ -18,6 +18,6 @@ const Textfield: React.FC<Props> = ({ label, value, onChange }) => {
       />
     </div>
   );
-};
+}
 
 export default Textfield;

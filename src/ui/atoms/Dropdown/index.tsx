@@ -1,6 +1,6 @@
 import { Props } from "./types";
 
-const Dropdown: React.FC<Props> = ({ options, onChange, value, label }) => {
+function Dropdown({ options, onChange, value, label }: Props) {
   return (
     <div className='mb-6'>
       <label
@@ -28,6 +28,6 @@ const Dropdown: React.FC<Props> = ({ options, onChange, value, label }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Dropdown;
