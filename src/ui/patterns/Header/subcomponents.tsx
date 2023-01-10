@@ -23,24 +23,24 @@ export function DropdownMenu({
   return showDropdown ? (
     <div
       id='dropdown-menu'
-      className='z-10 absolute right-0 mt-2 py-2 bg-white rounded-lg shadow-xl'
+      className='z-10 absolute right-0 mt-2 py-2 bg-white opacity-50 rounded-lg shadow-xl'
     >
       <a
         id='dropdown-menu'
         href='#'
-        className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
+        className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
         Home
       </a>
       <a
         href='#'
-        className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
+        className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
         About
       </a>
       <a
         href='#'
-        className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
+        className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
         Contact
       </a>
@@ -65,7 +65,7 @@ export function SelectionOptions() {
             key={option.text}
             id='dropdown-menu'
             href={option.route}
-            className='block px-4 py-2 text-gray-900 rounded-full hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
+            className='block px-4 py-2 text-gray-900 rounded-full bg-transparent hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont transition-colors duration-300 ease-in-out'
           >
             {option.text}
           </a>
