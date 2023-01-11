@@ -9,7 +9,7 @@ import {
   sillageOptions,
   climateOptions,
 } from "../../atoms/Dropdown/options";
-import TextArea from "../../atoms/Textarea";
+import TextArea from "../../atoms/TextArea";
 
 function Form() {
   const [occasion, setOccasion] = useState<string>("");
