@@ -53,8 +53,8 @@ export function DropdownMenu({
 export function SelectionOptions() {
   const options: SelectionOption[] = [
     { route: "/", text: "Home" },
-    { route: "/", text: "About" },
-    { route: "/", text: "Contact" },
+    { route: "about", text: "About" },
+    { route: "/contact", text: "Contact" },
   ];
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./Home";
+import Home from "./ui/components/Home";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
@@ -10,6 +10,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import UnderConstructionBanner from "./ui/atoms/UnderConstructionBanner";
 
 const router = createBrowserRouter([
   {
@@ -18,13 +19,18 @@ const router = createBrowserRouter([
   },
   {
     path: "about",
-    element: <div>About</div>,
+    element: <UnderConstructionBanner />,
+  },
+  {
+    path: "contact",
+    element: <UnderConstructionBanner />,
   },
 ]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

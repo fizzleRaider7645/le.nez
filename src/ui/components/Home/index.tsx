@@ -1,6 +1,6 @@
-import Carousel from "./ui/patterns/Carousel";
-import Footer from "./ui/patterns/Footer";
-import Header from "./ui/patterns/Header";
+import Carousel from "../../patterns/Carousel";
+import Footer from "../../patterns/Footer";
+import Header from "../../patterns/Header";
 
 function Home() {
   return (

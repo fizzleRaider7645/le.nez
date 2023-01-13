@@ -18,9 +18,9 @@ function Form() {
   const [personality, setPersonality] = useState<string>("");
   const [previousExperiences, setPreviousExperiences] = useState<string[]>([]);
   const [dislikedNotes, setDislikedNotes] = useState<string[]>([]);
-  const [skinType, setSkinType] = useState("");
-  const [climate, setClimate] = useState("");
-  const [silliage, setSilliage] = useState("");
+  const [skinType, setSkinType] = useState<string>("");
+  const [climate, setClimate] = useState<string>("");
+  const [silliage, setSilliage] = useState<string>("");
 
   return (
     <form className='w-full max-w-md'>
