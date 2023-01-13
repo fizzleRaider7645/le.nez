@@ -5,8 +5,9 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import UnderConstructionBanner from "./ui/atoms/UnderConstructionBanner";
+import UnderConstructionBanner from "./ui/patterns/UnderConstructionBanner";
 import routes from "./const/routes";
+import PageNotFound from "./ui/patterns/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: routes.CONTACT,
     element: <UnderConstructionBanner />,
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
   },
 ]);
 
