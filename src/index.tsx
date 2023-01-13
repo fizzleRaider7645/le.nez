@@ -4,25 +4,21 @@ import Home from "./ui/components/Home";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import UnderConstructionBanner from "./ui/atoms/UnderConstructionBanner";
+import routes from "./const/routes";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: routes.HOME,
     element: <Home />,
   },
   {
-    path: "about",
+    path: routes.ABOUT,
     element: <UnderConstructionBanner />,
   },
   {
-    path: "contact",
+    path: routes.CONTACT,
     element: <UnderConstructionBanner />,
   },
 ]);

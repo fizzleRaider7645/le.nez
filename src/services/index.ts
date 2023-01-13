@@ -1,3 +1,3 @@
 import getCompletion from "./getCompletion";
 
-export {getCompletion}
+export { getCompletion }

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import routes from "../../../const/routes";
 import { DropDownMenuProps, SelectionOption } from "./types";
 
 export function DropdownMenu({
@@ -27,19 +28,19 @@ export function DropdownMenu({
     >
       <a
         id='dropdown-menu'
-        href='#'
+        href={routes.HOME}
         className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
         Home
       </a>
       <a
-        href='#'
+        href={routes.ABOUT}
         className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
         About
       </a>
       <a
-        href='#'
+        href={routes.ABOUT}
         className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
         Contact
@@ -52,9 +53,9 @@ export function DropdownMenu({
 
 export function SelectionOptions() {
   const options: SelectionOption[] = [
-    { route: "/", text: "Home" },
-    { route: "about", text: "About" },
-    { route: "/contact", text: "Contact" },
+    { route: routes.HOME, text: "Home" },
+    { route: routes.ABOUT, text: "About" },
+    { route: routes.CONTACT, text: "Contact" },
   ];
 
   return (
