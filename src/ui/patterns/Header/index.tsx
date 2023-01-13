@@ -1,4 +1,5 @@
 import { useState } from "react";
+import routes from "../../../const/routes";
 import HamburgerMenu from "../../icons/HamburgerMenu";
 import { DropdownMenu, SelectionOptions } from "./subcomponents";
 
@@ -10,7 +11,7 @@ function Header() {
       <div className='container mx-auto flex items-center justify-between flex-wrap'>
         <div className='w-1/2 text-center text-gray-700 text-sm'>
           <a
-            href='#'
+            href={routes.HOME}
             className='text-gray-900 font-bold text-xl font-headerFont'
           >
             le👃nez

@@ -1,3 +1,4 @@
+import routes from "../../../const/routes";
 import Form from "../Form";
 
 function Hero() {
@@ -20,7 +21,7 @@ function Hero() {
         </p>
         <div className='flex justify-center mb-8'>
           <a
-            href='#'
+            href={routes.HOME}
             className='px-3 py-2 font-bold text-white bg-red-500 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red active:bg-red-800'
           >
             Learn More
