@@ -5,10 +5,11 @@ function Dropdown({ options, onChange, value, label }: Props) {
   const { formatMessage } = useIntl();
   const id = label?.toLowerCase();
   const formattedLabel = formatMessage({ id });
-  const optionDefaultLabel = `${formatMessage({
-    id: "select",
-  })} ${formattedLabel}`;
-  console.log(optionDefaultLabel);
+  const selectLabel =
+    formatMessage({ id: "select" }).charAt(0).toUpperCase() +
+    formatMessage({ id: "select" }).slice(1);
+  const optionDefaultLabel = `${selectLabel} ${formattedLabel}`;
+
   return (
     <div className='mb-6'>
       <label

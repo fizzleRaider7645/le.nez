@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 import { DropDownConext } from ".";
 import routes from "../../../const/router/routes";
 import { SelectionOption } from "./types";
@@ -31,19 +32,19 @@ export function DropdownMenu() {
         href={routes.HOME}
         className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
-        Home
+        <FormattedMessage id='home' />
       </a>
       <a
         href={routes.ABOUT}
         className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
-        About
+        <FormattedMessage id='about' />
       </a>
       <a
         href={routes.ABOUT}
         className='block px-4 py-2 text-gray-900 rounded-full opacity-100 hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont'
       >
-        Contact
+        <FormattedMessage id='contact' />
       </a>
     </div>
   ) : (
@@ -52,23 +53,25 @@ export function DropdownMenu() {
 }
 
 export function SelectionOptions() {
+  const { formatMessage } = useIntl();
+
   const options: SelectionOption[] = [
-    { route: routes.HOME, content: "Home" },
-    { route: routes.ABOUT, content: "About" },
-    { route: routes.CONTACT, content: "Contact" },
+    { route: routes.HOME, id: "home" },
+    { route: routes.ABOUT, id: "about" },
+    { route: routes.CONTACT, id: "contact" },
   ];
 
   return (
     <div className='w-1/2 flex justify-end'>
-      {options.map((option) => {
+      {options.map(({ id, route }, _index) => {
         return (
           <a
-            key={option.content}
+            key={id}
             id='dropdown-menu'
-            href={option.route}
-            className='block px-4 py-2 text-gray-900 rounded-full bg-transparent hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont transition-colors duration-300 ease-in-out'
+            href={route}
+            className='block px-4 py-2 text-center text-gray-900 rounded-full bg-transparent hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont transition-colors duration-300 ease-in-out whitespace-no-wrap text-sm'
           >
-            {option.content}
+            {formatMessage({ id })}
           </a>
         );
       })}

@@ -5,5 +5,5 @@ export interface DropDownContextType {
 
 export interface SelectionOption {
     route: string
-    content: string
+    id: string
 }
