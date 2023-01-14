@@ -4,6 +4,7 @@ import { Props } from "./types";
 function Dropdown({ options, onChange, value, label }: Props) {
   const { formatMessage } = useIntl();
   const id = label?.toLowerCase();
+  console.log("id", id);
   const formattedLabel = formatMessage({ id });
   const selectLabel =
     formatMessage({ id: "select" }).charAt(0).toUpperCase() +
