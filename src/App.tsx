@@ -1,5 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { IntlProvider } from "react-intl";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import locales from "./const/locales";
 import router from "./const/router";
 import "./index.css";
@@ -37,7 +39,9 @@ function App() {
       messages={locales[locale]}
     >
       <AppContext.Provider value={{ locale, setLocale }}>
-        <RouterProvider router={router} />
+        <DndProvider backend={HTML5Backend}>
+          <RouterProvider router={router} />
+        </DndProvider>
       </AppContext.Provider>
     </IntlProvider>
   );
