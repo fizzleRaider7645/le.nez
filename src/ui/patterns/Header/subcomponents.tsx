@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import routes from "../../../const/routes";
-import { DropDownMenuProps, SelectionOption } from "./types";
+import { useContext, useEffect } from "react";
+import { DropDownConext } from ".";
+import routes from "../../../const/router/routes";
+import { SelectionOption } from "./types";
 
-export function DropdownMenu({
-  showDropdown,
-  setShowDropdown,
-}: DropDownMenuProps) {
+export function DropdownMenu() {
+  const { showDropdown, setShowDropdown } = useContext(DropDownConext);
+
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
       if (!(event.target as HTMLElement).closest("#dropdown-menu")) {
@@ -53,9 +53,9 @@ export function DropdownMenu({
 
 export function SelectionOptions() {
   const options: SelectionOption[] = [
-    { route: routes.HOME, text: "Home" },
-    { route: routes.ABOUT, text: "About" },
-    { route: routes.CONTACT, text: "Contact" },
+    { route: routes.HOME, content: "Home" },
+    { route: routes.ABOUT, content: "About" },
+    { route: routes.CONTACT, content: "Contact" },
   ];
 
   return (
@@ -63,12 +63,12 @@ export function SelectionOptions() {
       {options.map((option) => {
         return (
           <a
-            key={option.text}
+            key={option.content}
             id='dropdown-menu'
             href={option.route}
             className='block px-4 py-2 text-gray-900 rounded-full bg-transparent hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont transition-colors duration-300 ease-in-out'
           >
-            {option.text}
+            {option.content}
           </a>
         );
       })}

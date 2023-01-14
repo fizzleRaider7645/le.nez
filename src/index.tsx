@@ -1,32 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./ui/components/Home";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import UnderConstructionBanner from "./ui/patterns/UnderConstructionBanner";
-import routes from "./const/routes";
-import PageNotFound from "./ui/patterns/PageNotFound";
-
-const router = createBrowserRouter([
-  {
-    path: routes.HOME,
-    element: <Home />,
-  },
-  {
-    path: routes.ABOUT,
-    element: <UnderConstructionBanner />,
-  },
-  {
-    path: routes.CONTACT,
-    element: <UnderConstructionBanner />,
-  },
-  {
-    path: "*",
-    element: <PageNotFound />,
-  },
-]);
+import App from "./App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -34,7 +10,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
 

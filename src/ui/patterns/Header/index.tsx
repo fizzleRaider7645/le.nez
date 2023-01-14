@@ -1,7 +1,13 @@
-import { useState } from "react";
-import routes from "../../../const/routes";
+import { createContext, useState } from "react";
+import routes from "../../../const/router/routes";
 import HamburgerMenu from "../../icons/HamburgerMenu";
 import { DropdownMenu, SelectionOptions } from "./subcomponents";
+import { DropDownContextType } from "./types";
+
+export const DropDownConext = createContext<DropDownContextType>({
+  showDropdown: false,
+  setShowDropdown: () => {},
+});
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -29,10 +35,11 @@ function Header() {
               type='button'
             >
               <HamburgerMenu />
-              <DropdownMenu
-                showDropdown={showDropdown}
-                setShowDropdown={setShowDropdown}
-              />
+              <DropDownConext.Provider
+                value={{ showDropdown, setShowDropdown }}
+              >
+                <DropdownMenu />
+              </DropDownConext.Provider>
             </button>
           </div>
         </div>
