@@ -30,7 +30,9 @@ function Carousel() {
         <button
           title={formatMessage({ id: "toggleLanguage" })}
           onClick={() => {
-            locale === "en" ? setLocale("es") : setLocale("en");
+            const languageToUse = locale === "en" ? "es" : "en";
+            localStorage.setItem("lang", languageToUse);
+            setLocale(languageToUse);
           }}
           className='p-2 rounded-full bg-white shadow-xl hover:shadow-2xl focus:outline-none opacity-60'
         >

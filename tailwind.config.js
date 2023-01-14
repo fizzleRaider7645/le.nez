@@ -7,6 +7,7 @@ module.exports = {
       fontFamily: {
         bebasNeue: ["Bebas Neue", "cursive"],
         headerFont: ["Rubik Mono One", "sans-serif"],
+        righteous: ["Righteous", "cursive"],
       },
       focusRing: {
         2: "2px",

@@ -3,7 +3,7 @@ import { IntlProvider } from "react-intl";
 import locales from "./const/locales";
 import router from "./const/router";
 import "./index.css";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { SupportedLanguages } from "./const/locales/types";
 
 export const AppContext = createContext<{
@@ -15,7 +15,20 @@ export const AppContext = createContext<{
 });
 
 function App() {
-  const [locale, setLocale] = useState<SupportedLanguages>("en");
+  let storedLanguageSelection = localStorage.getItem(
+    "lang"
+  ) as SupportedLanguages;
+
+  if (!storedLanguageSelection) {
+    localStorage.setItem("lang", "en");
+    storedLanguageSelection = localStorage.getItem(
+      "lang"
+    ) as SupportedLanguages;
+  }
+
+  const [locale, setLocale] = useState<SupportedLanguages>(
+    storedLanguageSelection
+  );
 
   return (
     <IntlProvider
