@@ -4,7 +4,6 @@ import { Props } from "./types";
 function TextArea({ label, value, onChange }: Props) {
   const { formatMessage } = useIntl();
   const id = label?.toLowerCase();
-
   const formattedLabel = formatMessage({ id });
 
   return (
