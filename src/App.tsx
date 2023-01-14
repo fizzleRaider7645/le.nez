@@ -3,7 +3,7 @@ import { IntlProvider } from "react-intl";
 import locales from "./const/locales";
 import router from "./const/router";
 import "./index.css";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { SupportedLanguages } from "./const/locales/types";
 
 export const AppContext = createContext<{
