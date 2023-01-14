@@ -1,11 +1,10 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import Arrow from "../../icons/Arrow";
 import Hero from "../Hero";
 import Globe from "../../icons/Globe";
 import { AppContext } from "../../../App";
 
 function Carousel() {
-  const nodeRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const { locale, setLocale } = useContext(AppContext);
   const items = [<div>hi</div>, <Hero />];
@@ -15,10 +14,7 @@ function Carousel() {
   };
 
   return (
-    <div
-      ref={nodeRef}
-      className='relative overflow-hidden w-full min-h-screen bg-gray-200'
-    >
+    <div className='relative overflow-hidden w-full min-h-screen bg-gray-200'>
       <div className='top-0 left-0 w-full h-full flex items-center justify-center overflow-scroll'>
         {items[activeIndex]}
       </div>
