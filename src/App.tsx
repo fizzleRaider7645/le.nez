@@ -18,7 +18,11 @@ function App() {
   const [locale, setLocale] = useState<SupportedLanguages>("en");
 
   return (
-    <IntlProvider locale={locale} messages={locales[locale]}>
+    <IntlProvider
+      onError={(error) => console.log(error)}
+      locale={locale}
+      messages={locales[locale]}
+    >
       <AppContext.Provider value={{ locale, setLocale }}>
         <RouterProvider router={router} />
       </AppContext.Provider>

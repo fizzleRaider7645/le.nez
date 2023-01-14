@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useIntl } from "react-intl";
 import Arrow from "../../icons/Arrow";
 import Hero from "../Hero";
 import Globe from "../../icons/Globe";
@@ -6,6 +7,7 @@ import { AppContext } from "../../../App";
 
 function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const intl = useIntl();
   const { locale, setLocale } = useContext(AppContext);
   const items = [<div>hi</div>, <Hero />];
 
@@ -26,6 +28,7 @@ function Carousel() {
           <Arrow activeIndex={activeIndex} items={items} />
         </button>
         <button
+          title={intl.formatMessage({ id: "toggleLanguage" })}
           onClick={() => {
             locale === "en" ? setLocale("es") : setLocale("en");
           }}
