@@ -8,7 +8,8 @@ const es = {
   work: 'trabajo',
   home: 'casa',
   about: 'acerca de',
-  contact: 'contacto'
+  contact: 'contacto',
+  underConstruction: 'bajo construcción'
 };
 
 export default es

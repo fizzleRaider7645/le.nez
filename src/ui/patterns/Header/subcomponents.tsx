@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { DropDownConext } from ".";
 import routes from "../../../const/router/routes";
 import { SelectionOption } from "./types";
@@ -53,8 +53,6 @@ export function DropdownMenu() {
 }
 
 export function SelectionOptions() {
-  const { formatMessage } = useIntl();
-
   const options: SelectionOption[] = [
     { route: routes.HOME, id: "home" },
     { route: routes.ABOUT, id: "about" },
@@ -63,7 +61,7 @@ export function SelectionOptions() {
 
   return (
     <div className='w-1/2 flex justify-end'>
-      {options.map(({ id, route }, _index) => {
+      {options.map(({ id, route }) => {
         return (
           <a
             key={id}
@@ -71,7 +69,7 @@ export function SelectionOptions() {
             href={route}
             className='block px-4 py-2 text-center text-gray-900 rounded-full bg-transparent hover:bg-yellow-400 focus:outline-none focus:bg-yellow-400 active:bg-yellow-400 font-headerFont transition-colors duration-300 ease-in-out whitespace-no-wrap text-sm'
           >
-            {formatMessage({ id })}
+            <FormattedMessage id={id} />
           </a>
         );
       })}
