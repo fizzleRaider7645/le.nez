@@ -20,7 +20,7 @@ function Dropdown({ options, onChange, value, label }: Props) {
       </label>
       <div className='relative rounded-md shadow-sm'>
         <select
-          className='appearance-none block w-full bg-white text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+          className='block w-full bg-white text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-md'
           id={formattedLabel}
           value={value || ""}
           onChange={onChange}

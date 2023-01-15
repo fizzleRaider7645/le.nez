@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import Dropdown from "../../atoms/Dropdown";
 import {
   occasionOptions,
@@ -10,59 +10,97 @@ import {
   climateOptions,
 } from "../../atoms/Dropdown/options";
 import TextArea from "../../atoms/TextArea";
+import reducer, { initialState } from "./reducer";
 
 function Form() {
-  const [occasion, setOccasion] = useState<string>("");
-  const [desiredEffect, setDesiredEffect] = useState<string>("");
-  const [scentType, setScentType] = useState<string>("");
-  const [personality, setPersonality] = useState<string>("");
-  const [previousExperiences, setPreviousExperiences] = useState<string[]>([]);
-  const [dislikedNotes, setDislikedNotes] = useState<string[]>([]);
-  const [skinType, setSkinType] = useState<string>("");
-  const [climate, setClimate] = useState<string>("");
-  const [silliage, setSilliage] = useState<string>("");
+  const [
+    {
+      desiredEffect,
+      scentType,
+      personality,
+      previousExperiences,
+      dislikedNotes,
+      skinType,
+      climate,
+      silliage,
+      occasion,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   return (
     <form className='w-full max-w-md'>
       <Dropdown
         options={occasionOptions}
-        onChange={(event) => setOccasion(event.target.value)}
+        onChange={(event) =>
+          dispatch({ type: "UPDATE_OCCASION", payload: event.target.value })
+        }
         value={occasion}
         label='Occasion'
       />
       <Dropdown
         options={desiredEffectsOptions}
-        onChange={(event) => setDesiredEffect(event.target.value)}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_DESIRED_EFFECT",
+            payload: event.target.value,
+          })
+        }
         value={desiredEffect}
         label='Desired Effect'
       />
       <Dropdown
         options={scentTypeOptions}
-        onChange={(event) => setScentType(event.target.value)}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_SCENT_TYPE",
+            payload: event.target.value,
+          })
+        }
         value={scentType}
         label='Scent Type'
       />
       <Dropdown
         options={skinTypeOptions}
-        onChange={(event) => setSkinType(event.target.value)}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_SKIN_TYPE",
+            payload: event.target.value,
+          })
+        }
         value={skinType}
         label='Skin Type'
       />
       <Dropdown
         options={personalityOptions}
-        onChange={(event) => setPersonality(event.target.value)}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_PERSONALITY",
+            payload: event.target.value,
+          })
+        }
         value={personality}
         label='Personality'
       />
       <Dropdown
         options={climateOptions}
-        onChange={(event) => setClimate(event.target.value)}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_CLIMATE",
+            payload: event.target.value,
+          })
+        }
         value={climate}
         label='Climate'
       />
       <Dropdown
         options={sillageOptions}
-        onChange={(event) => setSilliage(event.target.value)}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_SILLIAGE",
+            payload: event.target.value,
+          })
+        }
         value={silliage}
         label='Sillage'
       />
@@ -70,13 +108,21 @@ function Form() {
         label='Previous Experiences'
         value={previousExperiences}
         onChange={(event) =>
-          setPreviousExperiences(event.target.value.split(", "))
+          dispatch({
+            type: "UPDATE_PREVIOUS_EXPERIENCES",
+            payload: event.target.value,
+          })
         }
       />
       <TextArea
         label='Disliked Notes'
         value={dislikedNotes}
-        onChange={(event) => setDislikedNotes(event.target.value.split(", "))}
+        onChange={(event) =>
+          dispatch({
+            type: "UPDATE_DISLIKED_NOTES",
+            payload: event.target.value,
+          })
+        }
       />
     </form>
   );

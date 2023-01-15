@@ -1,4 +1,4 @@
-import { FC, memo, useState } from "react";
+import { FC, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { BoxProps, DropResult } from "./types";
 
@@ -69,7 +69,7 @@ export const Dustbin: FC = () => {
   );
 };
 
-export const DragAndDrop = memo(function () {
+function DragAndDrop() {
   return (
     <div className='h-screen w-full flex flex-col items-center justify-center'>
       <Dustbin />
@@ -80,6 +80,6 @@ export const DragAndDrop = memo(function () {
       </div>
     </div>
   );
-});
+}
 
 export default DragAndDrop;
