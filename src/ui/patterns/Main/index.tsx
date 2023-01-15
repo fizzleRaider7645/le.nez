@@ -3,7 +3,7 @@ import Form from "../Form";
 
 function Main() {
   return (
-    <section className='bg-white py-8 w-full'>
+    <section className='py-8 w-full bg-transparent'>
       <div className='container mx-auto px-4'>
         <div className='flex'>
           <div className='w-3/4'>
@@ -15,7 +15,6 @@ function Main() {
               <FormattedMessage id='mainContent' />
             </p>
           </div>
-          <div className='w-1/4'>{/* Hero image goes here */}</div>
         </div>
       </div>
     </section>

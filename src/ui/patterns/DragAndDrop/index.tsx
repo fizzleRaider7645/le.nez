@@ -1,24 +1,10 @@
-import { memo } from "react";
-import type { CSSProperties, FC } from "react";
+import { FC, memo } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import { BoxProps, DropResult } from "./types";
 
-const boxStyle: CSSProperties = {
-  border: "1px dashed gray",
-  backgroundColor: "white",
-  padding: "0.5rem 1rem",
-  marginRight: "1.5rem",
-  marginBottom: "1.5rem",
-  cursor: "move",
-  float: "left",
+const ItemTypes = {
+  BOX: "box",
 };
-
-export interface BoxProps {
-  name: string;
-}
-
-interface DropResult {
-  name: string;
-}
 
 export const Box: FC<BoxProps> = function Box({ name }) {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -36,29 +22,17 @@ export const Box: FC<BoxProps> = function Box({ name }) {
     }),
   }));
 
-  const opacity = isDragging ? 0.4 : 1;
   return (
-    <div ref={drag} style={{ ...boxStyle, opacity }} data-testid={`box`}>
+    <div
+      ref={drag}
+      className={`${
+        isDragging ? "opacity-50" : ""
+      } border-dashed border-gray-400 p-2 mr-3 mb-3 cursor-move`}
+      data-testid={`box`}
+    >
       {name}
     </div>
   );
-};
-
-export const ItemTypes = {
-  BOX: "box",
-};
-
-const style: CSSProperties = {
-  height: "12rem",
-  width: "12rem",
-  marginRight: "1.5rem",
-  marginBottom: "1.5rem",
-  color: "white",
-  padding: "1rem",
-  textAlign: "center",
-  fontSize: "1rem",
-  lineHeight: "normal",
-  float: "left",
 };
 
 export const Dustbin: FC = () => {
@@ -72,27 +46,30 @@ export const Dustbin: FC = () => {
   }));
 
   const isActive = canDrop && isOver;
-  let backgroundColor = "#222";
-  if (isActive) {
-    backgroundColor = "darkgreen";
-  } else if (canDrop) {
-    backgroundColor = "darkkhaki";
-  }
 
   return (
-    <div ref={drop} style={{ ...style, backgroundColor }} data-testid='dustbin'>
+    <div
+      ref={drop}
+      style={{ width: "800px", height: "400px" }}
+      className={`mb-3 text-black p-2 text-center font-medium rounded-md bg-black-alpha-500 border border-black ${
+        isActive
+          ? "bg-green-600"
+          : canDrop
+          ? "bg-yellow-600"
+          : "bg-black-alpha-500"
+      }`}
+      data-testid='dustbin'
+    >
       {isActive ? "Release to drop" : "Drag a box here"}
     </div>
   );
 };
 
-export const Container = memo(function Container() {
+export const Container = memo(function () {
   return (
-    <div>
-      <div style={{ overflow: "hidden", clear: "both" }}>
-        <Dustbin />
-      </div>
-      <div style={{ overflow: "hidden", clear: "both" }}>
+    <div className='h-screen w-full flex flex-col items-center justify-center'>
+      <Dustbin />
+      <div className='mb-0 mt-5'>
         <Box name='Glass' />
         <Box name='Banana' />
         <Box name='Paper' />

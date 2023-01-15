@@ -15,7 +15,7 @@ function TextArea({ label, value, onChange }: Props) {
         {formattedLabel}
       </label>
       <textarea
-        className='appearance-none block w-full bg-gray-200 text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-yellow-400'
+        className='block w-full text-black rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-yellow-400 shadow-md'
         id={formattedLabel}
         value={value.join(", ")}
         onChange={onChange}

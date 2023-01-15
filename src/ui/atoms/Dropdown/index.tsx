@@ -20,19 +20,19 @@ function Dropdown({ options, onChange, value, label }: Props) {
       </label>
       <div className='relative rounded-md shadow-sm'>
         <select
-          className='appearance-none block w-full bg-gray-200 text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+          className='appearance-none block w-full bg-white text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
           id={formattedLabel}
           value={value || ""}
           onChange={onChange}
         >
-          <option value='' disabled>
+          <option value='' disabled className='text-black'>
             {optionDefaultLabel}
           </option>
           {options.map(({ value, label, emoji }) => {
             const id = label?.toLowerCase();
             const formattedLabel = formatMessage({ id });
             return (
-              <option key={value} value={value}>
+              <option key={value} value={value} className='text-black'>
                 {formattedLabel} {emoji}
               </option>
             );

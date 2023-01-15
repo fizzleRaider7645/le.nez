@@ -17,18 +17,9 @@ function Carousel() {
   };
 
   return (
-    <div
-      className='relative overflow-hidden w-full min-h-screen bg-gray-200 opacity-50'
-      style={{
-        backgroundImage: "url(rose_bg.png)",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className='top-0 left-0 w-full h-full flex items-center justify-center overflow-scroll'>
-        {items[activeIndex]}
-        {/* <DragAndDrop /> */}
-      </div>
+    <div className='min-h-screen'>
+      {/* {items[activeIndex]} */}
+      <DragAndDrop />
       <div className='fixed bottom-5 right-5 mx-auto mb-4 mr-4 p-2 flex justify-between'>
         <button
           onClick={handleNextClick}
