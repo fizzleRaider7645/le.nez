@@ -10,7 +10,7 @@ function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { formatMessage } = useIntl();
   const { locale, setLocale } = useContext(AppContext);
-  const items = [<div>hi</div>, <Main />];
+  const items = [<DragAndDrop />, <Main />];
 
   const handleNextClick = () => {
     setActiveIndex((activeIndex + 1) % items.length);
@@ -18,8 +18,7 @@ function Carousel() {
 
   return (
     <div className='min-h-screen'>
-      {/* {items[activeIndex]} */}
-      <DragAndDrop />
+      {items[activeIndex]}
       <div className='fixed bottom-5 right-5 mx-auto mb-4 mr-4 p-2 flex justify-between'>
         <button
           onClick={handleNextClick}

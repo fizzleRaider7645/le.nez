@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { BoxProps, DropResult } from "./types";
 
@@ -36,12 +36,16 @@ export const Box: FC<BoxProps> = function Box({ name }) {
 };
 
 export const Dustbin: FC = () => {
+  const [selectedScentNotes, setSelectedScentNotes] = useState<string[]>([]);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
-    drop: () => ({ name: "Dustbin" }),
+    drop: ({ name }: { name: string }) => {
+      setSelectedScentNotes([...selectedScentNotes, name]);
+    },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
+      dropResults: monitor.getDropResult(),
     }),
   }));
 
@@ -65,7 +69,7 @@ export const Dustbin: FC = () => {
   );
 };
 
-export const Container = memo(function () {
+export const DragAndDrop = memo(function () {
   return (
     <div className='h-screen w-full flex flex-col items-center justify-center'>
       <Dustbin />
@@ -78,4 +82,4 @@ export const Container = memo(function () {
   );
 });
 
-export default Container;
+export default DragAndDrop;
