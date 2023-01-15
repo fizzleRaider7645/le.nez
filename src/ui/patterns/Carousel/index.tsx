@@ -4,13 +4,12 @@ import Arrow from "../../icons/Arrow";
 import Main from "../Main";
 import Globe from "../../icons/Globe";
 import { AppContext } from "../../../App";
-import DragAndDrop from "../DragAndDrop";
 
 function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { formatMessage } = useIntl();
   const { locale, setLocale } = useContext(AppContext);
-  const items = [<DragAndDrop />, <Main />];
+  const items = [<Main />];
 
   const handleNextClick = () => {
     setActiveIndex((activeIndex + 1) % items.length);

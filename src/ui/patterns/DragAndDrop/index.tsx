@@ -1,5 +1,6 @@
-import { FC, useState } from "react";
+import { FC, useContext } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import { FormContext } from "../Form";
 import { BoxProps, DropResult } from "./types";
 
 const ItemTypes = {
@@ -36,11 +37,11 @@ export const Box: FC<BoxProps> = function Box({ name }) {
 };
 
 export const Dustbin: FC = () => {
-  const [selectedScentNotes, setSelectedScentNotes] = useState<string[]>([]);
+  const { dispatch } = useContext(FormContext);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
     drop: ({ name }: { name: string }) => {
-      setSelectedScentNotes([...selectedScentNotes, name]);
+      dispatch({ type: "UPDATE_SCENT_NOTES", payload: name });
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
