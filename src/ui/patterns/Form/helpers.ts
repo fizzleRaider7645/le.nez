@@ -14,5 +14,9 @@ export const validateForm = (formState: FormState, step: number, steps: JSX.Elem
         return element.length
     });
 
+    if(!result) {
+        alert('Please complete remaining feilds')
+    }
+
     return result
 }
