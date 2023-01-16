@@ -27,7 +27,7 @@ export const Box: FC<BoxProps> = function Box({ name }) {
     <div
       ref={drag}
       className={`${
-        isDragging ? "opacity-50" : ""
+        isDragging ? "bg-gray-500 transform scale-110" : ""
       } border-dashed border-gray-400 p-2 mr-3 mb-3 cursor-move`}
       data-testid={`box`}
     >

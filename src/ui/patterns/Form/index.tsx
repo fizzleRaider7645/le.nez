@@ -27,10 +27,11 @@ const Arrow = ({ directionOverride, step, steps }: FormArrowProps) => {
   return (
     <div>
       <svg
+        className='opacity-30'
         width='24'
         height='24'
         viewBox='0 0 24 24'
-        transform={`rotate(${directionToUse})`}
+        transform={`scale(2) rotate(${directionToUse})`}
       >
         <path d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z' />
       </svg>
@@ -53,7 +54,7 @@ function Form() {
         <div className='flex-1'>{steps[step]}</div>
         {shouldRenderOneArrowButton ? (
           <button
-            className='ml-5 w-15 rounded-full bg-transparent shadow-xl focus:outline-none'
+            className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
             onClick={(event) => {
               const newStep = isLastStep ? step - 1 : step + 1;
               event.preventDefault();
@@ -65,7 +66,7 @@ function Form() {
         ) : (
           <>
             <button
-              className='ml-5 w-15 rounded-full bg-transparent shadow-xl focus:outline-none'
+              className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
                 setStep((step - 1) % steps.length);
@@ -74,7 +75,7 @@ function Form() {
               <Arrow directionOverride='left' step={step} steps={steps} />
             </button>
             <button
-              className='ml-5 w-15 rounded-full bg-transparent shadow-xl focus:outline-none'
+              className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
                 setStep((step + 1) % steps.length);
