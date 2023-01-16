@@ -1,5 +1,6 @@
 import { createContext, useReducer, useState } from "react";
 import DragAndDrop from "../DragAndDrop";
+import { validateForm } from "./helpers";
 import reducer, { initialState } from "./reducer";
 import { SelectionInputs, TextInputs } from "./subomponents";
 import { FormActionType, FormArrowProps, FormState } from "./types";
@@ -40,10 +41,13 @@ const Arrow = ({ directionOverride, step, steps }: FormArrowProps) => {
 };
 
 function Form() {
-  const steps = [<SelectionInputs />, <TextInputs />, <DragAndDrop />];
+  const steps = [
+    <SelectionInputs key='selectionInputs' />,
+    <TextInputs key='testInputs' />,
+    <DragAndDrop key='dragAndDropInput' />,
+  ];
   const [step, setStep] = useState<number>(0);
   const [formState, dispatch] = useReducer(reducer, initialState);
-
   const isLastStep = step === steps.length - 1;
 
   const shouldRenderOneArrowButton = step === 0 || isLastStep;
@@ -56,9 +60,11 @@ function Form() {
           <button
             className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
             onClick={(event) => {
-              const newStep = isLastStep ? step - 1 : step + 1;
               event.preventDefault();
-              setStep(newStep % steps.length);
+              if (validateForm(formState, step, steps)) {
+                const newStep = isLastStep ? step - 1 : step + 1;
+                setStep(newStep % steps.length);
+              }
             }}
           >
             <Arrow step={step} steps={steps} />
@@ -69,7 +75,9 @@ function Form() {
               className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
-                setStep((step - 1) % steps.length);
+                if (validateForm(formState, step, steps)) {
+                  setStep((step - 1) % steps.length);
+                }
               }}
             >
               <Arrow directionOverride='left' step={step} steps={steps} />
@@ -78,7 +86,9 @@ function Form() {
               className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
-                setStep((step + 1) % steps.length);
+                if (validateForm(formState, step, steps)) {
+                  setStep((step + 1) % steps.length);
+                }
               }}
             >
               <Arrow directionOverride='right' step={step} steps={steps} />

@@ -1,11 +1,7 @@
 import { FC, useContext } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { FormContext } from "../Form";
-import { BoxProps, DropResult } from "./types";
-
-const ItemTypes = {
-  BOX: "box",
-};
+import { BoxProps, DropResult, ItemTypes } from "./types";
 
 export const Box: FC<BoxProps> = function Box({ name }) {
   const [{ isDragging }, drag] = useDrag(() => ({

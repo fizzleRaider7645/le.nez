@@ -5,3 +5,7 @@ export interface BoxProps {
 export interface DropResult {
   name: string;
 }
+
+export enum ItemTypes {
+  BOX = "box",
+}
