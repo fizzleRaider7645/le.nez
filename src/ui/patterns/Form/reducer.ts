@@ -1,4 +1,4 @@
-import { FormState, FormActionType } from "./types";
+import { FormState, FormAction } from "./types";
 
 export const initialState: FormState = {
   occasion: "",
@@ -11,11 +11,12 @@ export const initialState: FormState = {
   skinType: "",
   climate: "",
   silliage: "",
+  hasError: false
 };
 
 function reducer(
   state: FormState,
-  action: { type: FormActionType; payload?: any }
+  action: FormAction
 ): FormState {
   switch (action.type) {
     case "UPDATE_OCCASION":
@@ -44,6 +45,8 @@ function reducer(
       };
     case "UPDATE_SKIN_TYPE":
       return { ...state, skinType: action.payload };
+      case "UPDATE_FORM_HAS_ERROR":
+        return {...state, hasError: action.payload}
     default:
       throw new Error();
   }

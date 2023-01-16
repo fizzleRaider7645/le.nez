@@ -3,14 +3,11 @@ import DragAndDrop from "../DragAndDrop";
 import { validateForm } from "./helpers";
 import reducer, { initialState } from "./reducer";
 import { SelectionInputs, TextInputs } from "./subomponents";
-import { FormActionType, FormArrowProps, FormState } from "./types";
+import { FormAction, FormArrowProps, FormState } from "./types";
 
 export const FormContext = createContext<{
   formState: FormState;
-  dispatch: React.Dispatch<{
-    type: FormActionType;
-    payload: string;
-  }>;
+  dispatch: React.Dispatch<FormAction>;
 }>({
   formState: initialState,
   dispatch: () => {},
@@ -61,7 +58,7 @@ function Form() {
             className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
             onClick={(event) => {
               event.preventDefault();
-              if (validateForm(formState, step, steps)) {
+              if (validateForm(formState, step, steps, dispatch)) {
                 const newStep = isLastStep ? step - 1 : step + 1;
                 setStep(newStep % steps.length);
               }
@@ -75,7 +72,7 @@ function Form() {
               className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
-                if (validateForm(formState, step, steps)) {
+                if (validateForm(formState, step, steps, dispatch)) {
                   setStep((step - 1) % steps.length);
                 }
               }}
@@ -86,7 +83,7 @@ function Form() {
               className='ml-5 w-15 rounded-full bg-transparent focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
-                if (validateForm(formState, step, steps)) {
+                if (validateForm(formState, step, steps, dispatch)) {
                   setStep((step + 1) % steps.length);
                 }
               }}

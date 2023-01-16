@@ -10,4 +10,5 @@ export interface Props {
   value: string;
   label: string;
   defaultValue?: string;
+  hasError: boolean
 }

@@ -11,6 +11,7 @@ import {
   skinTypeOptions,
 } from "../../atoms/Dropdown/options";
 import TextArea from "../../atoms/TextArea";
+import { FormActionType } from "./types";
 
 export function SelectionInputs() {
   const {
@@ -25,79 +26,59 @@ export function SelectionInputs() {
     },
     dispatch,
   } = useContext(FormContext);
+
+  const handleOnChange = (
+    actionType: FormActionType,
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    dispatch({ type: "UPDATE_FORM_HAS_ERROR", payload: false });
+    if (event) {
+      const value = event?.target?.value;
+      dispatch({ type: actionType, payload: value });
+    }
+  };
+
   return (
     <>
       <Dropdown
         options={occasionOptions}
-        onChange={(event) =>
-          dispatch({ type: "UPDATE_OCCASION", payload: event.target.value })
-        }
+        onChange={(event) => handleOnChange("UPDATE_OCCASION", event)}
         value={occasion}
         label='Occasion'
       />
       <Dropdown
         options={desiredEffectsOptions}
-        onChange={(event) =>
-          dispatch({
-            type: "UPDATE_DESIRED_EFFECT",
-            payload: event.target.value,
-          })
-        }
+        onChange={(event) => handleOnChange("UPDATE_DESIRED_EFFECT", event)}
         value={desiredEffect}
         label='Desired Effect'
       />
       <Dropdown
         options={scentTypeOptions}
-        onChange={(event) =>
-          dispatch({
-            type: "UPDATE_SCENT_TYPE",
-            payload: event.target.value,
-          })
-        }
+        onChange={(event) => handleOnChange("UPDATE_SCENT_TYPE", event)}
         value={scentType}
         label='Scent Type'
       />
       <Dropdown
         options={skinTypeOptions}
-        onChange={(event) =>
-          dispatch({
-            type: "UPDATE_SKIN_TYPE",
-            payload: event.target.value,
-          })
-        }
+        onChange={(event) => handleOnChange("UPDATE_SKIN_TYPE", event)}
         value={skinType}
         label='Skin Type'
       />
       <Dropdown
         options={personalityOptions}
-        onChange={(event) =>
-          dispatch({
-            type: "UPDATE_PERSONALITY",
-            payload: event.target.value,
-          })
-        }
+        onChange={(event) => handleOnChange("UPDATE_PERSONALITY", event)}
         value={personality}
         label='Personality'
       />
       <Dropdown
         options={climateOptions}
-        onChange={(event) =>
-          dispatch({
-            type: "UPDATE_CLIMATE",
-            payload: event.target.value,
-          })
-        }
+        onChange={(event) => handleOnChange("UPDATE_CLIMATE", event)}
         value={climate}
         label='Climate'
       />
       <Dropdown
         options={sillageOptions}
-        onChange={(event) =>
-          dispatch({
-            type: "UPDATE_SILLIAGE",
-            payload: event.target.value,
-          })
-        }
+        onChange={(event) => handleOnChange("UPDATE_SILLIAGE", event)}
         value={silliage}
         label='Sillage'
       />
