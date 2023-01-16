@@ -43,16 +43,21 @@ function Form() {
   const [step, setStep] = useState<number>(0);
   const [formState, dispatch] = useReducer(reducer, initialState);
 
+  const isLastStep = step === steps.length - 1;
+
+  const shouldRenderOneArrowButton = step === 0 || isLastStep;
+
   return (
     <FormContext.Provider value={{ formState, dispatch }}>
       <form className='w-full flex'>
         <div className='flex-1'>{steps[step]}</div>
-        {step === 0 || step === steps.length - 1 ? (
+        {shouldRenderOneArrowButton ? (
           <button
             className='ml-5 w-15 rounded-full bg-transparent shadow-xl focus:outline-none'
             onClick={(event) => {
+              const newStep = isLastStep ? step - 1 : step + 1;
               event.preventDefault();
-              setStep((step + 1) % steps.length);
+              setStep(newStep % steps.length);
             }}
           >
             <Arrow step={step} steps={steps} />
@@ -63,7 +68,7 @@ function Form() {
               className='ml-5 w-15 rounded-full bg-transparent shadow-xl focus:outline-none'
               onClick={(event) => {
                 event.preventDefault();
-                setStep((step + 1) % steps.length);
+                setStep((step - 1) % steps.length);
               }}
             >
               <Arrow directionOverride='left' step={step} steps={steps} />
