@@ -56,7 +56,7 @@ export const Dustbin: FC = () => {
         isActive
           ? "bg-green-600"
           : canDrop
-          ? "bg-yellow-600"
+          ? "bg-yellow-400"
           : "bg-black-alpha-500"
       }`}
       data-testid='dustbin'

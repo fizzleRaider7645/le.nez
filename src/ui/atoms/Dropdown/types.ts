@@ -9,6 +9,4 @@ export interface Props {
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string;
   label: string;
-  defaultValue?: string;
-  hasError: boolean
 }

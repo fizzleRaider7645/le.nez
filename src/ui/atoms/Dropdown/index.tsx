@@ -2,7 +2,7 @@ import { useIntl } from "react-intl";
 import { FormStateToValidate } from "../../patterns/Form/types";
 import { Props } from "./types";
 
-function Dropdown({ options, onChange, value, label, hasError }: Props) {
+function Dropdown({ options, onChange, value, label }: Props) {
   const { formatMessage } = useIntl();
   const id = label?.toLowerCase() as keyof FormStateToValidate;
   const formattedLabel = formatMessage({ id });
@@ -22,7 +22,7 @@ function Dropdown({ options, onChange, value, label, hasError }: Props) {
       <div className='relative rounded-md shadow-sm'>
         <select
           className={`block w-full bg-white text-gray-700 rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none ${
-            hasError
+            true // update this
               ? "border-4 border-solid border-red-500"
               : "focus:ring-2 focus:ring-yellow-400 shadow-md"
           }`}
