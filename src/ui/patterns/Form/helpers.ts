@@ -3,6 +3,7 @@ import { FormAction, FormState } from "./types";
 
 const keysForCurrentStep = (step: number, steps: JSX.Element[]): string[] => {
     const inputKey = steps[step].key
+    // need to move to a const
     const inputKeyValues = {selectionInputs: ['occasion', 'desiredEffect', 'scentType','personality','skinType','climate','silliage'], testInputs: ['dislikedNotes', 'previousExperiences'], dragAndDropInput: ['scentNotes']}
 
     return inputKeyValues[inputKey as keyof typeof inputKeyValues]
