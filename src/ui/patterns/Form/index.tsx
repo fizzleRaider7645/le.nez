@@ -5,14 +5,6 @@ import reducer, { initialState } from "./reducer";
 import { SelectionInputs, TextInputs } from "./subomponents";
 import { FormAction, FormArrowProps, FormState } from "./types";
 
-export const FormContext = createContext<{
-  formState: FormState;
-  dispatch: React.Dispatch<FormAction>;
-}>({
-  formState: initialState,
-  dispatch: () => {},
-});
-
 const Arrow = ({ directionOverride, step, steps }: FormArrowProps) => {
   const isLastStep = step === steps.length - 1;
   const directions = { left: 270, right: 90 };
@@ -36,6 +28,14 @@ const Arrow = ({ directionOverride, step, steps }: FormArrowProps) => {
     </div>
   );
 };
+
+export const FormContext = createContext<{
+  formState: FormState;
+  dispatch: React.Dispatch<FormAction>;
+}>({
+  formState: initialState,
+  dispatch: () => {},
+});
 
 function Form() {
   const steps = [
