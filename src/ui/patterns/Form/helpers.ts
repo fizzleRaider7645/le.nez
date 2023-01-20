@@ -16,7 +16,6 @@ export const validateForm = (formState: FormState, step: number, steps: JSX.Elem
     });
 
     if(!result) {
-        alert('Please complete all feilds')
         dispatch({type: 'UPDATE_FORM_HAS_ERROR', payload: true})
     }
 
