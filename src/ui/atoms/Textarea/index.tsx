@@ -1,10 +1,17 @@
+import { useContext } from "react";
 import { useIntl } from "react-intl";
+import { FormContext } from "../../patterns/Form";
 import { Props } from "./types";
 
 function TextArea({ label, value, onChange }: Props) {
   const { formatMessage } = useIntl();
+  const {
+    formState: { hasError },
+    dispatch,
+  } = useContext(FormContext);
   const id = label?.toLowerCase();
   const formattedLabel = formatMessage({ id });
+  const shouldRenderErrorRing = hasError && !value.length;
 
   return (
     <div className='mb-6'>
@@ -15,10 +22,17 @@ function TextArea({ label, value, onChange }: Props) {
         {formattedLabel}
       </label>
       <textarea
-        className='block w-full text-black rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-md'
+        className={`block w-full text-black rounded-md py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-md ${
+          shouldRenderErrorRing
+            ? "border-4 border-solid border-red-500"
+            : "focus:ring-2 focus:ring-yellow-400 shadow-md"
+        }`}
         id={formattedLabel}
         value={value}
         onChange={onChange}
+        onClick={() =>
+          dispatch({ type: "UPDATE_FORM_HAS_ERROR", payload: false })
+        }
       />
     </div>
   );

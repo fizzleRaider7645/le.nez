@@ -9,7 +9,7 @@ function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const { formatMessage } = useIntl();
   const { locale, setLocale } = useContext(AppContext);
-  const items = [<Main />];
+  const items = [<Main />, <div>Hi</div>];
 
   const handleNextClick = () => {
     setActiveIndex((activeIndex + 1) % items.length);

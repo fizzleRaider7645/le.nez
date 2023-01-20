@@ -1,4 +1,4 @@
-import { FormAction, FormState } from "./types";
+import { FormAction, FormState, FormStateToValidate } from "./types";
 
 
 const keysForCurrentStep = (step: number, steps: JSX.Element[]): string[] => {
@@ -11,8 +11,8 @@ const keysForCurrentStep = (step: number, steps: JSX.Element[]): string[] => {
 
 export const validateForm = (formState: FormState, step: number, steps: JSX.Element[], dispatch: React.Dispatch<FormAction>) => {
     const result = keysForCurrentStep(step, steps).every((key) => {
-        const element = formState[key as keyof FormState]
-        return (element === 'string' || Array.isArray(element)) && element.length
+        const element = formState[key as keyof FormStateToValidate]
+        return element.length
     });
 
     if(!result) {
