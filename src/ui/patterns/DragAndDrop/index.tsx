@@ -33,7 +33,10 @@ export const Box: FC<BoxProps> = function Box({ name }) {
 };
 
 export const Dustbin: FC = () => {
-  const { dispatch } = useContext(FormContext);
+  const {
+    formState: { scentNotes },
+    dispatch,
+  } = useContext(FormContext);
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
     drop: ({ name }: { name: string }) => {
@@ -50,20 +53,27 @@ export const Dustbin: FC = () => {
   const isActive = canDrop && isOver;
 
   return (
-    <div
-      ref={drop}
-      style={{ width: "800px", height: "400px" }}
-      className={`mb-3 text-black p-2 text-center font-medium rounded-md bg-black-alpha-500 border border-black ${
-        isActive
-          ? "bg-green-600"
-          : canDrop
-          ? "bg-yellow-400"
-          : "bg-black-alpha-500"
-      }`}
-      data-testid='dustbin'
-    >
+    <>
       {isActive ? "Release to drop" : "Drag a box here"}
-    </div>
+      <div
+        ref={drop}
+        style={{ width: "800px", height: "400px" }}
+        className={`mb-3 text-black p-2 text-center font-medium rounded-md bg-black-alpha-500 border border-black ${
+          isActive
+            ? "bg-green-600"
+            : canDrop
+            ? "bg-yellow-400"
+            : "bg-black-alpha-500"
+        }`}
+        data-testid='dustbin'
+      >
+        <ul>
+          {scentNotes.map((scentNote) => {
+            return <li>{scentNote}</li>;
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 
