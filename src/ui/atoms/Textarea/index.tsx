@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { useIntl } from "react-intl";
 import { FormContext } from "../../patterns/Form";
-import { Props } from "./types";
+import { TextAreaProps } from "./types";
 
-function TextArea({ label, value, onChange }: Props) {
+function TextArea({ label, value, onChange }: TextAreaProps) {
   const { formatMessage } = useIntl();
   const {
     formState: { hasError },
@@ -30,9 +30,6 @@ function TextArea({ label, value, onChange }: Props) {
         id={formattedLabel}
         value={value}
         onChange={onChange}
-        onClick={() =>
-          dispatch({ type: "UPDATE_FORM_HAS_ERROR", payload: false })
-        }
       />
     </div>
   );

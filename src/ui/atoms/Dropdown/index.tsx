@@ -2,20 +2,19 @@ import { useContext } from "react";
 import { useIntl } from "react-intl";
 import { FormContext } from "../../patterns/Form";
 import { FormStateToValidate } from "../../patterns/Form/types";
-import { Props } from "./types";
+import { DropDownProps } from "./types";
 
-function Dropdown({ options, onChange, value, label }: Props) {
+function Dropdown({ options, onChange, value, label }: DropDownProps) {
   const { formatMessage } = useIntl();
   const {
     formState: { hasError },
-    dispatch,
   } = useContext(FormContext);
   const id = label?.toLowerCase() as keyof FormStateToValidate;
   const formattedLabel = formatMessage({ id });
-  const selectLabel =
-    formatMessage({ id: "select" }).charAt(0).toUpperCase() +
-    formatMessage({ id: "select" }).slice(1);
-  const optionDefaultLabel = `${selectLabel} ${formattedLabel}`;
+  const selectLabelBase = formatMessage({ id: "select" });
+  const formattedSelectLabel =
+    selectLabelBase.charAt(0).toUpperCase() + selectLabelBase.slice(1);
+  const optionDefaultLabel = `${formattedSelectLabel} ${formattedLabel}`;
   const shouldRenderErrorRing = hasError && !value.length;
 
   return (
@@ -35,9 +34,6 @@ function Dropdown({ options, onChange, value, label }: Props) {
           }`}
           id={formattedLabel}
           value={value}
-          onClick={() =>
-            dispatch({ type: "UPDATE_FORM_HAS_ERROR", payload: false })
-          }
           onChange={onChange}
         >
           <option value='' disabled className='text-black'>

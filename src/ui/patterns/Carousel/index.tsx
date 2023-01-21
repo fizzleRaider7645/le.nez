@@ -15,6 +15,12 @@ function Carousel() {
     setActiveIndex((activeIndex + 1) % items.length);
   };
 
+  const handleLanguageChange = () => {
+    const languageToUse = locale === "en" ? "es" : "en";
+    localStorage.setItem("lang", languageToUse);
+    setLocale(languageToUse);
+  };
+
   return (
     <div className='min-h-screen'>
       {items[activeIndex]}
@@ -27,11 +33,7 @@ function Carousel() {
         </button>
         <button
           title={formatMessage({ id: "toggleLanguage" })}
-          onClick={() => {
-            const languageToUse = locale === "en" ? "es" : "en";
-            localStorage.setItem("lang", languageToUse);
-            setLocale(languageToUse);
-          }}
+          onClick={handleLanguageChange}
           className='p-2 rounded-full bg-white shadow-xl hover:shadow-2xl focus:outline-none opacity-60'
         >
           <Globe />

@@ -4,7 +4,7 @@ export interface Option {
   emoji?: string;
 }
 
-export interface Props {
+export interface DropDownProps {
   options: Option[];
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   value: string;

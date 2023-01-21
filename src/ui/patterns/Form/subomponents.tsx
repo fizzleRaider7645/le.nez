@@ -31,7 +31,6 @@ export function SelectionInputs() {
     actionType: FormActionType,
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    dispatch({ type: "UPDATE_FORM_HAS_ERROR", payload: false });
     if (event) {
       const value = event?.target?.value;
       dispatch({ type: actionType, payload: value });
