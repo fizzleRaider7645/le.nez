@@ -21,11 +21,13 @@ function Carousel() {
     setLocale(languageToUse);
   };
 
+  const shouldRenderArrowButton = items.length > 1;
+
   return (
     <div className='min-h-screen'>
       {items[activeIndex]}
       <div className='fixed bottom-5 right-5 mx-auto mb-4 mr-4 p-2 flex justify-between'>
-        {items.length > 1 ? (
+        {shouldRenderArrowButton ? (
           <button
             onClick={handleNextClick}
             className='p-2 rounded-full bg-white shadow-xl hover:shadow-2xl focus:outline-none opacity-60'
