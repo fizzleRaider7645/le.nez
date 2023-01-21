@@ -46,11 +46,16 @@ function Form() {
   const [step, setStep] = useState<number>(0);
   const [formState, dispatch] = useReducer(reducer, initialState);
   const isLastStep = step === steps.length - 1;
-
+  const { hasError } = formState;
   const shouldRenderOneArrowButton = step === 0 || isLastStep;
 
   return (
     <FormContext.Provider value={{ formState, dispatch }}>
+      {hasError ? (
+        <h2 className='text-center text-red-600'>Please complete all fields</h2>
+      ) : (
+        ""
+      )}
       <form className='w-full flex'>
         <div className='flex-1'>{steps[step]}</div>
         {shouldRenderOneArrowButton ? (
