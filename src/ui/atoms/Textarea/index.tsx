@@ -7,7 +7,6 @@ function TextArea({ label, value, onChange }: TextAreaProps) {
   const { formatMessage } = useIntl();
   const {
     formState: { hasError },
-    dispatch,
   } = useContext(FormContext);
   const id = label?.toLowerCase();
   const formattedLabel = formatMessage({ id });
