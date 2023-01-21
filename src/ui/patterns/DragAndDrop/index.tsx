@@ -37,6 +37,7 @@ export const Dustbin: FC = () => {
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
     drop: ({ name }: { name: string }) => {
+      dispatch({ type: "UPDATE_FORM_HAS_ERROR", payload: false });
       dispatch({ type: "UPDATE_SCENT_NOTES", payload: name });
     },
     collect: (monitor) => ({
