@@ -1,5 +1,19 @@
 /* eslint-disable no-useless-computed-key */
-// import { keys } from "./keys";
+
+// en.ts
+// import { defineMessages } from 'react-intl';
+
+// export default defineMessages({
+//   hello: {
+//     id: 'app.hello',
+//     defaultMessage: 'Hello, World!',
+//   },
+//   welcome: {
+//     id: 'app.welcome',
+//     defaultMessage: 'Welcome to my app',
+//   },
+// });
+
 
 const en = {
   welcome: 'welcome to le.nez',
