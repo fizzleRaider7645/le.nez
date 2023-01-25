@@ -33,7 +33,7 @@ function reducer(
     case "UPDATE_CLIMATE":
       return { ...state, climate: action.payload, hasError: false };
     case "UPDATE_SCENT_NOTES":
-      return { ...state, scentNotes: [...state.scentNotes, action.payload], hasError: false };
+      return { ...state, scentNotes: action.payload, hasError: false };
     case "UPDATE_SILLIAGE":
       return { ...state, silliage: action.payload, hasError: false };
     case "UPDATE_SCENT_TYPE":

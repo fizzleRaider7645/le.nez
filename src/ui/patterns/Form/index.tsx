@@ -43,7 +43,7 @@ function Form() {
     <TextInputs key='testInputs' />,
     <DragAndDrop key='dragAndDropInput' />,
   ];
-  const [step, setStep] = useState<number>(0);
+  const [step, setStep] = useState<number>(2);
   const [formState, dispatch] = useReducer(reducer, initialState);
   const isLastStep = step === steps.length - 1;
   const { hasError } = formState;
@@ -56,7 +56,7 @@ function Form() {
       ) : (
         ""
       )}
-      <form className='w-full flex'>
+      <form className='w-full flex bg-yellow-100'>
         <div className='flex-1'>{steps[step]}</div>
         {shouldRenderOneArrowButton ? (
           <button

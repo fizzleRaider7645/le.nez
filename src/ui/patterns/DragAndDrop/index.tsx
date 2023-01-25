@@ -9,6 +9,7 @@ export const Box: FC<BoxProps> = function Box({ name }) {
     item: { name },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResult>();
+      console.log("dropResult", dropResult);
       if (item && dropResult) {
         alert(`You dropped ${item.name} into ${dropResult.name}!`);
       }
@@ -40,7 +41,16 @@ export const Dustbin: FC = () => {
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
     drop: ({ name }: { name: string }) => {
-      dispatch({ type: "UPDATE_SCENT_NOTES", payload: name });
+      if (scentNotes.includes(name)) {
+        dispatch({
+          type: "UPDATE_SCENT_NOTES",
+          payload: scentNotes.filter((item) => item !== name),
+        });
+      }
+      console.log(scentNotes);
+      const merrr = [...scentNotes, name];
+      console.log(merrr);
+      dispatch({ type: "UPDATE_SCENT_NOTES", payload: [...scentNotes, name] });
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
@@ -68,7 +78,11 @@ export const Dustbin: FC = () => {
       >
         <ul>
           {scentNotes.map((scentNote) => {
-            return <li>{scentNote}</li>;
+            return (
+              <li key={scentNote}>
+                <Box name={scentNote} />
+              </li>
+            );
           })}
         </ul>
       </div>
