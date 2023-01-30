@@ -29,7 +29,6 @@ const Arrow = ({ directionOverride, step, steps }: FormArrowProps) => {
   );
 };
 
-// reconsider context
 export const FormContext = createContext<{
   formState: FormState;
   dispatch: React.Dispatch<FormAction>;
